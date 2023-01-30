@@ -1,0 +1,41 @@
+.container.mt-2
+  h2
+    | Звіт за період: &nbsp;
+    = @report_options[:start_date]
+    | &nbsp;-&nbsp;
+    = @report_options[:last_date]
+
+  h3
+    = type_to_word(@report_options[:operation_type])
+
+.container.py-4.border-top.mt-2
+  .chart.row.align-items-center
+    .col-3.p-4.category
+      table.table.table-striped.table-bordered style="max-width: 300px;"
+        thead
+          tr
+            th Категорія
+            th Сума
+        tbody
+          - @category_reports.each do |r|
+            tr
+              td = r[0]
+              td = r[1]
+          tr.table-success
+            td colspan="2"
+              | Всього:&nbsp;
+              = operation_sum(@category_reports)
+              | &nbsp;грн.
+    .col
+      h6.text-center style="color: #2c2c6c;"
+        | Розподіл витрат за період
+      = pie_chart @category_reports, empty: "Заповніть будь ласка форму"
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+.container.py-4
+  h1.mb-4
+    | Категорії витрат / доходів
+
+  - if @categories.count <= 0
+
+    h4.text-info.text-center
+      | Ваш список категорій пустий
+
+  - else
+
+    .category
+      .col-5.mb-2
+        = render "search_form"
+
+      table.table.table-striped.table-bordered
+        thead
+          tr
+            th #
+            th Назва
+            th Опис
+            th Управління
+        tbody
+          - @categories.each_with_index do |category, i|
+            tr
+              td = i + 1
+              td = link_to category.name, category
+              td = category.description
+              td.d-flex.align-items-center
+                = link_to  edit_category_path(category), class: "link-btn icon-btn"
+                    i.fa-solid.fa-pen-to-square
+                = button_to category, class: "icon-btn", method: :delete
+                    i.fa-regular.fa-rectangle-xmark
+
+  = link_to "Додати нову категорію", new_category_path, class: "btn btn-primary bg-gradient", type: "button"

@@ -1,0 +1,12 @@
+.container
+  - flash.each do |type, msg|
+    - if type == "notice"
+      .alert.alert-success.alert-dismissible.fade.show role="alert"
+        = msg
+        button.btn-close type="button" data-bs-dismiss="alert" aria-label="Close"
+    - else
+      .alert.alert-danger.alert-dismissible.fade.show role="alert"
+        = msg
+        button.btn-close type="button" data-bs-dismiss="alert" aria-label="Close"
+
+

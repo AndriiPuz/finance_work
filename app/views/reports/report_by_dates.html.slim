@@ -1,0 +1,13 @@
+.container.mt-2.pt-4
+  h4.text-center style="color: #2c2c6c;"
+    | Розподіл витрат за період по датам:&nbsp;
+    = @report_options[:start_date]
+    | &nbsp;-&nbsp;
+    = @report_options[:last_date]
+
+  .col style="margin-top: 100px;"
+    = line_chart @date_reports, label: "Сума",
+                                xtitle: "Finance Manager",
+                                ytitle: "Values", curve: false,
+                                empty: "Заповніть будь ласка форму"
+

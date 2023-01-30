@@ -1,0 +1,27 @@
+h1.mb-4
+  = category.name
+  | &nbsp;(
+  = category.description
+  | )
+.category
+  - if category.operations.count <= 0
+    h4.text-center
+      | У вас немає транзакцій по даній категорії
+  - else
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th #
+          th Опис
+          th Тип операції
+          th Сума
+          th Дата
+      tbody
+        - category.operations.each_with_index do |operation, i|
+          tr
+            td = i + 1
+            td = link_to operation.description, operation
+            td = operation.operation_type
+            td = operation.amount
+            td = operation.operation_date
+

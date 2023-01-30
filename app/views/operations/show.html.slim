@@ -1,0 +1,8 @@
+.container.py-4
+  ol.breadcrumb
+    = render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;"
+
+  = render @operation
+
+  = button_to "Видалити транзакцію", @operation, method: :delete, class: "btn btn-danger"
+

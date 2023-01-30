@@ -1,0 +1,52 @@
+= form_with(model: operation) do |form|
+  = render "shared/error_messages", object: operation
+
+  .row.align-items-center
+    .col-2.text-end
+      label.form-label for="operation_category_id"
+        | Назва категорії
+    .col-3
+      select#operation_category_id.form-select name="operation[category_id]"
+        - @category_options.each do |o|
+          option value="#{o[1]}"
+            = o[0]
+
+  .row.align-items-center.my-3
+    .col-2.text-end
+      = form.label :operation_type, class: "form-label"
+        | Тип операції
+    .col-3
+      select#operation_type.form-select name="operation[operation_type]"
+        - Operation.operation_types.keys.each do |t|
+          option value="#{t}"
+            = type_to_word(t)
+
+  .row.align-items-center.my-3
+    .col-2.text-end
+      = form.label :amount, class: "form-label"
+        | Сума
+    .col-1
+      = form.text_field :amount, class: "form-control"
+
+  .row.align-items-center.my-3
+    .col-2.text-end
+      = form.label :description, class: "form-label"
+        | Короткий опис
+    .col-6
+      = form.text_field :description, class: "form-control"
+
+  .row.align-items-center.my-3
+    .col-2.text-end
+      = form.label :operation_date, class: "form-label"
+        | Дата YYYY-MM-DD
+    .col-3
+      = form.date_field :operation_date, class: "form-control"
+
+  .row.align-items-center.my-3
+    .col-1.offset-2
+       button.btn.btn-primary.[type="submit"]
+        | Зберегти
+    .col-1
+       button.btn.btn-secondary.mx-4[type="reset"]
+        | Очистити
+

@@ -1,0 +1,8 @@
+.container
+  ol.breadcrumb.my-4
+    = render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;"
+
+  h1.my-4
+    | Редагування транзакції
+  .category
+    = render "form", operation: @operation

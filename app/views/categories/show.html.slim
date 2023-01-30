@@ -1,0 +1,8 @@
+.container.py-4
+  ol.breadcrumb
+    = render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;"
+
+  = render @category
+
+  = button_to "Видалити категорію", @category, method: :delete, class: "btn btn-danger"
+  

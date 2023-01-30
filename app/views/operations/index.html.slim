@@ -1,0 +1,37 @@
+.container.py-4
+  h1.mb-4
+    | Транзакції
+
+  .category
+    .col-5.mb-2
+      form.d-flex[role="search"]
+        input.form-control[type="search" placeholder="Введіть перші літери назви категорії" aria-label="Search"]
+
+    table.table.table-striped.table-bordered
+      thead
+        tr
+          th #
+          th Категорія
+          th Тип операції
+          th Сума
+          th Дата
+          th Опис
+          th Управління
+      tbody
+        - @operations.each_with_index do |operation, i|
+          tr
+            td = i + 1
+            td = operation.category.name
+            td = type_to_word(operation.operation_type)
+            td = operation.amount
+            td = operation.operation_date.to_date
+            td = operation.description
+            td.d-flex.align-items-center
+              = link_to  edit_operation_path(operation), class: "link-btn icon-btn"
+                  i.fa-solid.fa-pen-to-square
+              = button_to operation, class: "icon-btn", method: :delete
+                  i.fa-regular.fa-rectangle-xmark
+
+  .col.d-flex.justify-content-between.align-items-center
+    = link_to "Додати нову транзакцію", new_operation_path, class: "btn btn-primary bg-gradient", type: "button"
+    == pagy_bootstrap_nav(@pagy)

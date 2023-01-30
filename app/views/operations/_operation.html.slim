@@ -1,0 +1,19 @@
+h1.mb-4
+  = operation.description
+
+.category
+  table.table.table-bordered.table-striped
+      thead
+        tr
+          th Категорія
+          th Опис
+          th Тип операції
+          th Сума
+          th Дата
+      tbody
+        tr
+          td = operation.category.name
+          td = operation.description
+          td = type_to_word(operation.operation_type)
+          td = operation.amount
+          td = operation.operation_date
