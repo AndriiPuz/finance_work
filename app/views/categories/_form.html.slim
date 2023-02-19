@@ -3,22 +3,22 @@
 
   .row.g-3.align-items-center
     .col-2.text-end
-       = form.label :name, class: "form-label"
+       = form.label :name, class: "form-label fw-bold"
         | Назва категорії
     .col-3
        = form.text_field :name, class: "form-control"
 
   .row.g-3.align-items-center.my-3
     .col-2.text-end
-       = form.label :description, class: "form-label"
+       = form.label :description, class: "form-label fw-bold"
         | Короткий опис
     .col-6
        = form.text_field :description, class: "form-control"
 
-  .row.g-3.align-items-center.my-3
-    .col-1.offset-2
-       button.btn.btn-primary[type="submit"]
+  .row.my-3
+    .col-2.offset-2.d-flex
+       button.btn.btn-primary.me-4[type="submit"]
         | Зберегти
-    .col-1
        button.btn.btn-secondary[type="reset"]
         | Очистити
+

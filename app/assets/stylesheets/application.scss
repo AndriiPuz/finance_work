@@ -13,17 +13,33 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
- @import "font-awesome";
- @import "./header.scss";
- @import "./categories.scss";
- @import "./devise.scss";
- @import "./footer.scss";
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700;900&display=swap');
+@import "bootstrap";
+@import "font-awesome";
+@import "./header.scss";
+@import "./categories.scss";
+@import "./devise.scss";
+@import "./footer.scss";
+@import "./home.scss";
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // font-family: 'Roboto Slab', serif;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
 
- body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    .btn {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        &:hover {
+            box-shadow: none;
+        }
+    }
+    h1 {
+        font-weight: 600;
+        font-size: 38px;
+        color: #22b300;
+    }
 }
-

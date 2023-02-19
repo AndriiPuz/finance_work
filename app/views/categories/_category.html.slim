@@ -20,8 +20,8 @@ h1.mb-4
         - category.operations.each_with_index do |operation, i|
           tr
             td = i + 1
-            td = link_to operation.description, operation
-            td = operation.operation_type
+            td = link_to operation.description.truncate(100), operation
+            td = type_to_word(operation.operation_type)
             td = operation.amount
-            td = operation.operation_date
+            td = operation.operation_date.to_date
 

@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
 
   def index
     categories = current_user.categories
-    @category_options = categories.map { |c| [c.name, c.id]}
+    @category_options = categories.map { |c| [c.name, c.id] }
   end
 
   def report_by_category
@@ -13,8 +13,6 @@ class ReportsController < ApplicationController
         .map do |key, value|
           [Category.find(key).name, value]
     end
-
-
   end
 
   def report_by_dates
@@ -24,7 +22,6 @@ class ReportsController < ApplicationController
                         params[:operation_type],
                         params[:operation][:category_id]
                       )
-
   end
 
   private

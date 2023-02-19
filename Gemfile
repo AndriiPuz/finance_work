@@ -33,6 +33,10 @@ gem "sassc-rails"
 gem 'slim-rails'
 gem "devise", "~> 4.8"
 gem "breadcrumbs_on_rails", "~> 4.1"
+gem "chartkick", "~> 5.0"
+gem "faker", "~> 3.1"
+gem "ransack", "~> 3.2"
+gem 'pagy', '~> 6.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -78,9 +82,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem "chartkick", "~> 5.0"
 
-gem "faker", "~> 3.1"
-
-gem "ransack", "~> 3.2"
-gem 'pagy', '~> 6.0'

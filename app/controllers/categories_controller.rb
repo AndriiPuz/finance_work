@@ -6,7 +6,8 @@ class CategoriesController < ApplicationController
   def index
     @q = current_user.categories.ransack(params[:q])
     @q.sorts = 'name asc' if @q.sorts.empty?
-    @categories = @q.result(distinct: true)
+    categories = @q.result(distinct: true)
+    @pagy, @categories = pagy(categories)
   end
 
   # GET /categories/1 or /categories/1.json

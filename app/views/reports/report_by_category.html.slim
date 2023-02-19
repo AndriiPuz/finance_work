@@ -1,5 +1,5 @@
 .container.mt-2
-  h2
+  h2.fw-bold
     | Звіт за період: &nbsp;
     = @report_options[:start_date]
     | &nbsp;-&nbsp;
@@ -9,7 +9,7 @@
     = type_to_word(@report_options[:operation_type])
 
 .container.py-4.border-top.mt-2
-  .chart.row.align-items-center
+  .chart.row
     .col-3.p-4.category
       table.table.table-striped.table-bordered style="max-width: 300px;"
         thead
@@ -19,7 +19,7 @@
         tbody
           - @category_reports.each do |r|
             tr
-              td = r[0]
+              td.text-success = r[0]
               td = r[1]
           tr.table-success
             td colspan="2"
@@ -28,14 +28,5 @@
               | &nbsp;грн.
     .col
       h6.text-center style="color: #2c2c6c;"
-        | Розподіл витрат за період
+        | Розподіл #{type_to_word(@report_options[:operation_type])} за період
       = pie_chart @category_reports, empty: "Заповніть будь ласка форму"
-
-
-
-
-
-
-
-
-

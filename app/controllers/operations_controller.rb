@@ -6,7 +6,8 @@ class OperationsController < ApplicationController
 
   # GET /operations or /operations.json
   def index
-    @pagy, @operations = pagy(current_user.operations)
+    @pagy, @operations = pagy(pagy_options)
+    @categories = current_user.operations.collect { |o| [o.category.name, o.category.id] }.uniq
   end
 
   # GET /operations/1 or /operations/1.json
@@ -70,6 +71,9 @@ class OperationsController < ApplicationController
 
   private
 
+    def pagy_options
+      params[:operation] == nil ? current_user.operations : current_user.operations.operations_by_category(params[:operation][:category_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_operation
       @operation = Operation.find(params[:id])
@@ -78,12 +82,6 @@ class OperationsController < ApplicationController
     def set_category_options
       @category_options = current_user.categories.map { |c| [c.name, c.id]}
     end
-
-    # def set_operation_types
-    #   @operations_types = current_user.operations.otypes.map do |key, value|
-    #     key = value == 0 ? "Витрата" : "Дохід"
-    #   end
-    # end
 
     # Only allow a list of trusted parameters through.
     def operation_params

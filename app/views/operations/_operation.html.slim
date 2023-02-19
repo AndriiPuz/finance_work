@@ -13,7 +13,7 @@ h1.mb-4
       tbody
         tr
           td = operation.category.name
-          td = operation.description
+          td = operation.description.truncate(100)
           td = type_to_word(operation.operation_type)
           td = operation.amount
-          td = operation.operation_date
+          td = operation.operation_date.to_date

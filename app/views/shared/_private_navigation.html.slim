@@ -21,13 +21,6 @@
             ul.dropdown-menu
               li
                 = link_to "Згенерувати звіт", reports_path, class: "dropdown-item"
-              li
-                hr.dropdown-divider
-              li
-                = link_to "Звіт по категоріям", reports_by_category_path, class: "dropdown-item"
-              li
-                = link_to "Звіт по датам", reports_by_dates_path, class: "dropdown-item"
-
           li.nav-item.dropdown style="margin-right: 40px;"
             a.nav-link.dropdown-toggle href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
               = current_user.email
