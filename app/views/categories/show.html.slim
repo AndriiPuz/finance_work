@@ -5,7 +5,7 @@
   = render @category
 
   .col.d-flex
-    = button_to "Видалити категорію", @category, method: :delete, class: "btn btn-danger"
-    = link_to "Додати нову транзакцію", new_operation_path, class: "btn btn-primary mx-4" if @category.operations.count <= 0
+    = button_to "Видалити категорію", @category, method: :delete, class: "custom-btn danger me-4"
+    = link_to "Додати нову транзакцію", new_operation_path, class: "custom-btn success" if @category.operations.count <= 0
 
 

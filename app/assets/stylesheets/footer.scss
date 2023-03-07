@@ -1,7 +1,29 @@
+@import "./variables.scss";
+
 footer {
+  background: #102128;
+  .social {
+    min-width: 350px;
+    display: flex;
+    justify-content: space-around;
+  }
+  input {
+    min-width: 350px !important;
+  }
+  p {
+    font-size: 28px;
+    font-weight: 600;
+    color: $main-text-color;
+  }
   margin-top: auto;
+  .btn {
+    border-radius: 50%;
+    box-shadow: $main-box-shadow !important;
+    margin-right: 20px;
+  }
 
   .text-center {
     color: #808080;
   }
+  
 }

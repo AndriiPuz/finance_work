@@ -1,8 +1,11 @@
+@import "./variables.scss";
+
 .reports {
   padding: 20px 20px 20px 50px;
   margin-top: 5%;
   margin-bottom: 30px;
-  background: #f2f2f2;
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background: #102128;
+  border-radius: 18px;
+  box-shadow: #00ffcb 0px 0px 14px;;
+  color: $main-text-color;
 }

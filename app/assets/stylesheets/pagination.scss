@@ -1,0 +1,72 @@
+@import "./variables.scss";
+
+  .pagy_nav.pagination {
+    margin: 23px 15px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .page.current {
+      background: #102128;
+      box-shadow: $main-box-shadow;
+      color: $main-text-color;
+    }
+
+    .page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 5px;
+      background: $main-text-color;
+      margin: 0 5px;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+    }
+
+    .prev,
+    .next {
+      padding: 10px 20px;
+      font-size: 16px;
+      // border: 1px solid $main-text-color !important;
+      // box-shadow: $main-box-shadow;
+      border-radius: 14px !important;
+      width: 60px;
+      background: $main-text-color;
+      a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .page-link {
+    align-items: center;
+    border: 0;
+    border-radius: 14px;
+    color: gray;
+    display: inline-flex;
+    height: 32px;
+    justify-content: center;
+    margin: 0 5px;
+    min-width: 32px;
+    padding: 0 10px;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+
+  }
+
+  .page-item.active .page-link {
+    background: green;
+  }
+

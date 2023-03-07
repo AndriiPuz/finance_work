@@ -4,28 +4,26 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="mb-3">
-      <%= f.label :email, class: "form-label" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      <%= f.label :email, class: "form-label", style: "color: #00ffcb" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "custom-input text-field" %>
     </div>
 
     <div class="mb-3">
-      <%= f.label :password, class: "form-label" %>
+      <%= f.label :password, class: "form-label", style: "color: #00ffcb" %>
       <% if @minimum_password_length %>
-        <em class="text-warning">(<%= @minimum_password_length %> characters minimum)</em>
+        <em style="color: #7bf5a7;">(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "custom-input text-field" %>
     </div>
 
     <div class="mb-3">
-      <%= f.label :password_confirmation, class: "form-label" %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+      <%= f.label :password_confirmation, class: "form-label", style: "color: #00ffcb" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "custom-input text-field" %>
     </div>
 
-    <%= f.submit "Sign up", class: "btn btn-success bg-gradient" %>
+    <%= f.submit "Sign up", class: "custom-btn success me-4" %>
     <%= render "devise/shared/links" %>
-
   <% end %>
-
 
 </div>
 

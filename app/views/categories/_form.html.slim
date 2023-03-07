@@ -6,19 +6,19 @@
        = form.label :name, class: "form-label fw-bold"
         | Назва категорії
     .col-3
-       = form.text_field :name, class: "form-control"
+       = form.text_field :name, class: "custom-input text-field"
 
   .row.g-3.align-items-center.my-3
     .col-2.text-end
        = form.label :description, class: "form-label fw-bold"
         | Короткий опис
     .col-6
-       = form.text_field :description, class: "form-control"
+       = form.text_field :description, class: "custom-input text-field"
 
-  .row.my-3
+  .row.mt-5
     .col-2.offset-2.d-flex
-       button.btn.btn-primary.me-4[type="submit"]
+       button.custom-btn.success.me-4[type="submit"]
         | Зберегти
-       button.btn.btn-secondary[type="reset"]
+       button.button.custom-btn.secondary[type="reset"]
         | Очистити
 

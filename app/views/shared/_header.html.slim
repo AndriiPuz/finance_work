@@ -1,17 +1,15 @@
-nav.navbar.navbar-expand-lg.bg-body-tertiary.bg-dark.header.sticky-top
+nav.navbar.navbar-expand-lg.navbar-expand-custom.header.sticky-top
   .container-fluid
     = link_to root_path, class: "navbar-brand" do
       = image_tag "logo.png", alt: "logo", style: "width: 40px; height: auto; margin-right: 15px;"
       span
         | FINANCE MANAGER
     button.navbar-toggler type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-      span.navbar-toggler-icon
+      i.fa-solid.fa-burger.m-auto style="color: #009879;"
     #navbarSupportedContent.collapse.navbar-collapse
 
       - if user_signed_in?
         = render "shared/private_navigation"
       - else
         = render "shared/public_navigation"
-
-
 

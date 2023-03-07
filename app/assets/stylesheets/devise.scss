@@ -1,7 +1,15 @@
+@import "./variables.scss";
+
 .new_user {
   max-width: 500px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background: $main-bg-grad;
+  box-shadow: $main-box-shadow;
   padding: 50px;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 0 auto;
+ }
+
+ .form-check-input:checked {
+  background-color: #6adcfe;
+    border-color: #6adcfe;
  }

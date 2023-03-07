@@ -6,7 +6,7 @@
       label.form-label.fw-bold for="operation_category_id"
         | Назва категорії
     .col-3
-      select#operation_category_id.form-select name="operation[category_id]"
+      select#operation_category_id.form-select.custom-select name="operation[category_id]"
         - @category_options.each do |o|
           option value="#{o[1]}"
             = o[0]
@@ -16,7 +16,7 @@
       = form.label :operation_type, class: "form-label fw-bold"
         | Тип операції
     .col-3
-      select#operation_type.form-select name="operation[operation_type]"
+      select#operation_type.form-select.custom-select name="operation[operation_type]"
         - Operation.operation_types.keys.each do |t|
           option value="#{t}"
             = type_to_word(t)
@@ -26,27 +26,27 @@
       = form.label :amount, class: "form-label fw-bold"
         | Сума
     .col-1
-      = form.text_field :amount, class: "form-control"
+      = form.text_field :amount, class: "custom-input text-field"
 
   .row.align-items-center.my-3
     .col-2.text-end
       = form.label :description, class: "form-label fw-bold"
         | Короткий опис
     .col-6
-      = form.text_field :description, class: "form-control"
+      = form.text_field :description, class: "custom-input text-field"
 
   .row.align-items-center.my-3
     .col-2.text-end
       = form.label :operation_date, class: "form-label fw-bold"
         | Дата YYYY-MM-DD
     .col-3
-      = form.date_field :operation_date, class: "form-control"
+      = form.date_field :operation_date, class: "custom-input text-field"
 
   .row.my-3
     .col-2.offset-2.d-flex
-      button.btn.btn-primary.me-4[type="submit"]
+      button.custom-btn.success.me-4[type="submit"]
         | Зберегти
-      button.btn.btn-secondary[type="reset"]
+      button.custom-btn.secondary[type="reset"]
         | Очистити
 
 

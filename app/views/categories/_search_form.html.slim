@@ -1,4 +1,4 @@
 = search_form_for @q, class: "d-flex", data: { controller: "search-form", search_form_target: "form" } do |f|
   .col.d-flex
-    = f.text_field :name_cont, class:"form-control", placeholder: "Введіть перші літери назви категорії", data: { action: "keydown->search-form#search" }
-    i.fa-sharp.fa-solid.fa-magnifying-glass.align-self-center.mx-2.text-primary.fs-3
+    = f.text_field :name_cont, class:"custom-input", placeholder: "Введіть перші літери назви категорії", data: { action: "keydown->search-form#search" }
+    i.fa-sharp.fa-solid.fa-magnifying-glass.align-self-center.mx-2.fs-3 style="color: #00ffcb;"

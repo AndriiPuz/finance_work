@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
     static targets = ["button"];
 
-    hideBtn(e) {
+    hideBtn() {
         this.buttonTarget.hidden = true;
     }
 

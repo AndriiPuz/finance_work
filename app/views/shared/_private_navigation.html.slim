@@ -1,34 +1,22 @@
-        ul.navbar-nav.me-auto.mb-2.mb-lg-0
-          li.nav-item.dropdown
-            a.nav-link.dropdown-toggle href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-              | Категорії
-            ul.dropdown-menu
-              li
-                = link_to "Список категорій", categories_path, class: "dropdown-item"
-              li
-                = link_to "Додати категорію", new_category_path, class: "dropdown-item"
-          li.nav-item.dropdown
-            a.nav-link.dropdown-toggle href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-              | Транзакції
-            ul.dropdown-menu
-             li
-                = link_to "Список транзакцій", operations_path, class: "dropdown-item"
-             li
-                = link_to "Додати транзакцію", new_operation_path, class: "dropdown-item"
-          li.nav-item.dropdown
-            a.nav-link.dropdown-toggle href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-              | Звіти
-            ul.dropdown-menu
-              li
-                = link_to "Згенерувати звіт", reports_path, class: "dropdown-item"
-          li.nav-item.dropdown style="margin-right: 40px;"
-            a.nav-link.dropdown-toggle href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-              = current_user.email
-            ul.dropdown-menu
-              li
-                a.dropdown-item href="#"
-                   | Редагувати профіль
-              li
-                hr.dropdown-divider
-              li
-                = button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item"
+ul.navbar-nav.ml-auto
+  li.nav-item
+    = link_to categories_path, class: "#{current_link_class(categories_path)} nav-link" do
+      i.fa-solid.fa-clipboard-list
+      | Категорії
+
+  li.nav-item
+    = link_to operations_path, class: "#{current_link_class(operations_path)} nav-link" do
+      i.fa-regular.fa-credit-card
+      | Операції
+
+  li.nav-item
+    = link_to reports_path, class: "#{current_link_class(reports_path)} nav-link" do
+      i.fa-solid.fa-chart-pie
+      | Звіти
+  li.nav-item.dropdown
+    a.nav-link.dropdown-toggle href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+      i.fa-solid.fa-user-tie
+      = current_user.email
+    ul.dropdown-menu
+      li
+        = button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item"

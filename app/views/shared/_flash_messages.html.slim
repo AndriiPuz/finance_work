@@ -1,6 +1,6 @@
   - flash.each do |type, msg|
     - if type == "notice"
-      .alert.alert-success.alert-dismissible.fade.show role="alert"
+      .alert.alert-success.alert-dismissible.fade.show role="alert" data-controller="flash-messages" data-flash-messages-target="flash"
         = msg
         button.btn-close type="button" data-bs-dismiss="alert" aria-label="Close"
     - else

@@ -1,0 +1,16 @@
+button.help-btn.position-fixed[type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"]
+    i.fa-solid.fa-circle-info
+#exampleModal.modal.fade[tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"]
+    .modal-dialog.modal-dialog-centered
+      .modal-content
+        .modal-header
+          h1#exampleModalLabel.modal-title.fs-5
+            | Допомога
+          button.btn-close[type="button" data-bs-dismiss="modal" aria-label="Close"]
+        .modal-body.d-flex.flex-column
+          p style="color: #00ffcb;"
+            |Aкаунт з тестовими данимим
+          span.text-white
+            | Email:&nbsp;testuser@mail.com
+          span.text-white
+            | Password:&nbsp;123456

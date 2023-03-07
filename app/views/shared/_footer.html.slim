@@ -1,15 +1,40 @@
-footer.bg-dark.text-center.text-white
+footer.text-center.text-white
   .container.p-4.pb-0
     section
-      a.btn.text-white.btn-floating.m-1[style="background-color: #3b5998;" href="https://www.facebook.com/profile.php?id=100017126328389" role="button"]
-        i.fab.fa-facebook-f
-      a.btn.text-white.btn-floating.m-1[style="background-color: #dd4b39;" href="#!" role="button"]
-        i.fab.fa-google
-      a.btn.text-white.btn-floating.m-1[style="background-color: #0082ca;" href="https://www.linkedin.com/in/vasyl-yatsyshyn-3992841b3/" role="button"]
-        i.fab.fa-linkedin-in
-      a.btn.text-white.btn-floating.m-1[style="background-color: #333333;" href="#!" role="button"]
-        i.fab.fa-github
+      .row
+        .col.d-flex.flex-column.align-items-start.justify-content-around
+          p.fw-bold.text-start
+            | Sign up for our newsletter
+          .form-outline.form-white.mb-4
+            input.custom-input.text-field[type="email"]
+          .social
+            = link_to "https://www.facebook.com/profile.php?id=100017126328389", class: "btn text-white btn-floating m-1", style: "background-color: #3b5998"
+              i.fab.fa-facebook-f
+            = link_to "#", class: "btn text-white btn-floating m-1", style: "background-color: #dd4b39"
+              i.fab.fa-google
+            = link_to "https://www.linkedin.com/in/vasyl-yatsyshyn-3992841b3/", class: "btn text-white btn-floating m-1", style: "background-color: #0082ca"
+              i.fab.fa-linkedin-in
+            = link_to "https://github.com/lbeketl", class: "btn text-white btn-floating m-1", style: "background-color: #333333"
+              i.fab.fa-github
+
+        .col.d-flex.justify-content-end
+          = image_tag "logo.png", style: "max-width: 100%; height: 220px;"
   .text-center.p-3
     | © 2023 Copyright: by&nbsp;
-    a style="color: white;" href="https://mdbootstrap.com/"
+    = link_to "#", style: "color: #00ffcb;"
       | Vasyl Yatsyshyn
+
+
+
+
+
+
+/ .social
+/   = link_to "https://www.facebook.com/profile.php?id=100017126328389", class: "btn text-white btn-floating m-1", style: "background-color: #3b5998"
+/     i.fab.fa-facebook-f
+/   = link_to "https://www.facebook.com/profile.php?id=100017126328389", class: "btn text-white btn-floating m-1", style: "background-color: #dd4b39"
+/     i.fab.fa-google
+/   = link_to "https://www.facebook.com/profile.php?id=100017126328389", class: "btn text-white btn-floating m-1", style: "background-color: #0082ca"
+/     i.fab.fa-linkedin-in
+/   = link_to "https://www.facebook.com/profile.php?id=100017126328389", class: "btn text-white btn-floating m-1", style: "background-color: #333333"
+/     i.fab.fa-github

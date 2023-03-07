@@ -14,9 +14,11 @@
  *= require_self
  */
 // @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700;900&display=swap");
 @import "bootstrap";
 @import "font-awesome";
+@import "./variables.scss";
+@import "./pagination.scss";
 @import "./header.scss";
 @import "./categories.scss";
 @import "./devise.scss";
@@ -25,11 +27,52 @@
 
 body {
     min-height: 100vh;
+    position: relative;
     display: flex;
     flex-direction: column;
-    // font-family: 'Roboto Slab', serif;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 18px;
+    box-shadow: 0 0 5px 2px #282a2d;
+    background: $main-bg-grad;
+    background-position-y: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .help-btn {
+        background: $main-text-color;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        top: 85%;
+        right: 2%;
+        box-shadow: $main-box-shadow;
+        transition: all 0.3s ease;
+        z-index: 100;
+        &:hover {
+          box-shadow: none;
+          border: 1px solid #102128;
+        }
+
+        i {
+          font-size: 20px;
+          color: #102128 !important;
+        }
+      }
+
+    .modal-content {
+        border-radius: 14px !important;
+        background: #102128;
+        box-shadow: $main-box-shadow;
+    }
+
+    .breadcrumb {
+        color: $main-text-color;
+        a {
+            color: #7bf5a7;
+        }
+    }
 
     .btn {
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -40,6 +83,47 @@ body {
     h1 {
         font-weight: 600;
         font-size: 38px;
-        color: #22b300;
+        color: $main-text-color;
+    }
+}
+
+.alert-success {
+    color: #ffffff !important;
+    background-color: #009879 !important;
+    box-shadow: $main-box-shadow !important;
+}
+
+.alert-danger {
+    color: white !important;
+    background-color: #e15151 !important;
+    box-shadow: #e92c61 0px 0px 14px !important;
+}
+
+.alert-success.hiden {
+    -webkit-animation-name: fadeOut;
+    -webkit-animation-duration: 1s;
+    animation-name: fadeOut;
+    animation-duration: 2s;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0.9;
+    }
+    40% {
+        opacity: 0.7;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        display: none;
     }
 }

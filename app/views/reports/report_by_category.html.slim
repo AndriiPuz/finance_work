@@ -1,17 +1,17 @@
-.container.mt-2
-  h2.fw-bold
+.container.my-4
+  h2.fw-bold style="color: #00ffcb;"
     | Звіт за період: &nbsp;
     = @report_options[:start_date]
     | &nbsp;-&nbsp;
     = @report_options[:last_date]
 
-  h3
+  h3 style="color: #7bf5a7;"
     = type_to_word(@report_options[:operation_type])
 
 .container.py-4.border-top.mt-2
   .chart.row
-    .col-3.p-4.category
-      table.table.table-striped.table-bordered style="max-width: 300px;"
+    .col-3.p-4.category.mt-0
+      table.custom-table style="max-width: 300px;"
         thead
           tr
             th Категорія
@@ -22,11 +22,15 @@
               td.text-success = r[0]
               td = r[1]
           tr.table-success
-            td colspan="2"
+            td colspan="2" style="color: white;"
               | Всього:&nbsp;
               = operation_sum(@category_reports)
               | &nbsp;грн.
     .col
-      h6.text-center style="color: #2c2c6c;"
+      h2.text-center style="color: #00ffcb;"
         | Розподіл #{type_to_word(@report_options[:operation_type])} за період
       = pie_chart @category_reports, empty: "Заповніть будь ласка форму"
+
+  h1 style="color:red;"
+    / = @category_reports.to_a
+

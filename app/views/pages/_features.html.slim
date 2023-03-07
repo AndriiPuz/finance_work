@@ -1,0 +1,11 @@
+section.container.features
+    h2.text-center
+      | Features our users love
+    .row.py-4.d-flex
+      - card_data.each do |c|
+        .col-6.d-flex.flex-column.my-4
+          = image_tag "#{c[:img]}", style: "width: 56px; height: auto; margin: 0 auto;"
+          h3.feature-title.text-center.my-4
+            = c[:title]
+          p.feature-desc.text-center.
+            = c[:text]

@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get 'reports', to: "reports#index"
   get 'reports_by_category', to: 'reports#report_by_category'
   get 'reports_by_dates', to: 'reports#report_by_dates'
+
+  match '*unmatched', to: 'application#not_found_method', via: :all
 end

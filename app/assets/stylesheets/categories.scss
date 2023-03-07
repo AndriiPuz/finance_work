@@ -1,10 +1,13 @@
+@import "./variables.scss";
+
 .category {
   padding: 30px 20px 20px 50px;
   margin-top: 5%;
-  margin-bottom: 30px;
-  background: #f2f2f2;
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 50px;
+  background: #102128;
+  border-radius: 18px;
+  box-shadow: $main-box-shadow;
+  color: $main-text-color;
 
   .category-form {
     padding: 20px 50px 30px 50px;
@@ -16,7 +19,7 @@
     border-top-left-radius: 15px;
 
     a {
-      color: #22b300;
+      color: #7bf5a7;
       font-weight: bold;
       // text-decoration: none;
     }
@@ -37,12 +40,12 @@
   .icon-btn {
     width: 28px;
     height: 26px;
-    padding: 0 5px;
+    padding: 0 7px;
     display: inline-block;
     border: none;
     margin-right: 15px;
-    border-radius: 5px;
-    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,225,230,1) 60%);
+    border-radius: 50%;
+    background: transparent;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
     transition: all linear 0.1s;
 
@@ -51,7 +54,3 @@
       }
   }
 }
-
-// .button_to {
-//   margin-top: 20px;
-// }

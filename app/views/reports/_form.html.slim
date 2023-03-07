@@ -5,21 +5,21 @@
       = form.label :start_date, class: "form-label fw-bold"
         | Дата YYYY-MM-DD
     .col-3
-      = form.date_field :start_date,  class: "form-control"
+      = form.date_field :start_date,  class: "custom-input text-field"
 
   .row.align-items-center.my-3
     .col-2.text-end
       = form.label :last_date, class: "form-label fw-bold"
         | Дата YYYY-MM-DD
     .col-3
-      = form.date_field :last_date, class: "form-control"
+      = form.date_field :last_date, class: "custom-input text-field"
 
   .row.align-items-center.my-3
     .col-2.text-end
       = label_tag :operation_type, class: "form-label fw-bold"
         | Тип операції
     .col-3
-      select#operation_type.form-select name="operation_type"
+      select#operation_type.form-select.custom-select name="operation_type"
         - Operation.operation_types.keys.each do |t|
           option value="#{t}"
             = type_to_word(t)
@@ -29,22 +29,20 @@
       = label_tag :operation_type, class: "form-label fw-bold"
         | Категорія
     .col-3
-      select#operation_category_id.form-select name="operation[category_id]" data-action="focus->hide#hideBtn onfocusout->hide#showBtn"
+      select#operation_category_id.form-select.custom-select name="operation[category_id]" data-action="focus->hide#hideBtn onfocusout->hide#showBtn"
         option desiabled="true"
           | Виберіть категорію
         - @category_options.each do |o|
           option value="#{o[1]}"
             = o[0]
 
-  .row.align-items-center.my-3
+  .row.align-items-center.my-5
     .col.offset-2
-      button.btn.btn-primary.bg-gradient[type="submit"]
-        | Згенерувати
-      button.btn.btn-secondary.mx-2.bg-gradient[type="reset"]
-        | Очистити
-      button.btn.btn-success.mx-2.bg-gradient[type="submit" data-hide-target="button"]
-        | Графік
-      button.btn.btn-danger.mx-2.bg-gradient type="submit" formaction="#{reports_by_dates_path}"
-        | По датам
 
+      button.custom-btn.success.me-4[type="submit" data-hide-target="button"]
+        i.fa-solid.fa-chart-pie
+        | Графік
+      button.custom-btn.danger type="submit" formaction="#{reports_by_dates_path}"
+        i.fa-solid.fa-chart-line
+        | По датам
 

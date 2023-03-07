@@ -10,9 +10,9 @@ class ReportsController < ApplicationController
   def report_by_category
     @category_reports = current_user.operations
       .reports_by_category(params[:start_date], params[:last_date], params[:operation_type])
-        .map do |key, value|
-          [Category.find(key).name, value]
-    end
+      .map do |key, value|
+        [Category.find(key).name, value]
+      end
   end
 
   def report_by_dates
@@ -32,5 +32,4 @@ class ReportsController < ApplicationController
       operation_type: params[:operation_type]
     }
   end
-
 end
