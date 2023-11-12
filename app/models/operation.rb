@@ -21,4 +21,9 @@ class Operation < ApplicationRecord
     .group(:operation_date)
     .sum(:amount)
   }
+  # private
+  # def convert(sum, from_currency = 'UAH', to_currency)
+  #   fx = OpenExchangeRates::Rates.new
+  #   fx.convert(sum, :from => from_currency, :to => to_currency)
+  # end
 end

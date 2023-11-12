@@ -9,3 +9,15 @@
   box-shadow: #00ffcb 0px 0px 14px;;
   color: $main-text-color;
 }
+.main_report-form {
+  display: flex;
+}
+.report_form {
+  flex: 2;
+}
+.today_rates {
+  flex: 1;
+}
+h1 {
+  text-align: center;
+}

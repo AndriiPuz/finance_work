@@ -1,3 +1,4 @@
+require 'open_exchange_rates'
 class ReportsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_repot_options, only: %i[ report_by_category report_by_dates ]
@@ -11,7 +12,7 @@ class ReportsController < ApplicationController
     @category_reports = current_user.operations
       .reports_by_category(params[:start_date], params[:last_date], params[:operation_type])
       .map do |key, value|
-        [Category.find(key).name, value]
+        [Category.find(key).name, convert(value, params[:currency])]
       end
   end
 
@@ -21,10 +22,14 @@ class ReportsController < ApplicationController
                         params[:last_date],
                         params[:operation_type],
                         params[:operation][:category_id]
-                      )
+                      ).transform_values! do |value| convert(value, params[:currency]) end
   end
 
   private
+  def convert(sum, from_currency = 'UAH', to_currency)
+    fx = OpenExchangeRates::Rates.new
+    fx.convert(sum, :from => from_currency, :to => to_currency)
+  end
 
   def set_repot_options
     @report_options = { start_date: params[:start_date],

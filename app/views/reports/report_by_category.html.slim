@@ -7,6 +7,10 @@
 
   h3 style="color: #7bf5a7;"
     = type_to_word(@report_options[:operation_type])
+    | &nbsp; в &nbsp;
+    = params[:currency]
+    | &nbsp;
+    = image_tag(exchange_rates(params[:currency]), class: 'currency-flag', size: '40x30')
 
 .container.py-4.border-top.mt-2
   .chart.row
@@ -25,7 +29,8 @@
             td colspan="2" style="color: white;"
               | Всього:&nbsp;
               = operation_sum(@category_reports)
-              | &nbsp;грн.
+              | &nbsp;
+              = params[:currency]
     .col
       h2.text-center style="color: #00ffcb;"
         | Розподіл #{type_to_word(@report_options[:operation_type])} за період

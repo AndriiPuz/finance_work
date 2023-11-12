@@ -1,48 +1,65 @@
-= form_with(url: reports_by_category_path, method: :get) do |form|
+= form_with(url: reports_by_category_path, method: :get, class: "main_report-form") do |form|
+  .report_form
+    .row.align-items-center.my-3
+      .col-2.text-end
+        = form.label :start_date, class: "form-label fw-bold"
+          | Дата YYYY-MM-DD
+      .col-3
+        = form.date_field :start_date,  class: "custom-input text-field"
 
-  .row.align-items-center.my-3
-    .col-2.text-end
-      = form.label :start_date, class: "form-label fw-bold"
-        | Дата YYYY-MM-DD
-    .col-3
-      = form.date_field :start_date,  class: "custom-input text-field"
+    .row.align-items-center.my-3
+      .col-2.text-end
+        = form.label :last_date, class: "form-label fw-bold"
+          | Дата YYYY-MM-DD
+      .col-3
+        = form.date_field :last_date, class: "custom-input text-field"
 
-  .row.align-items-center.my-3
-    .col-2.text-end
-      = form.label :last_date, class: "form-label fw-bold"
-        | Дата YYYY-MM-DD
-    .col-3
-      = form.date_field :last_date, class: "custom-input text-field"
+    .row.align-items-center.my-3
+      .col-2.text-end
+        = label_tag :currency, "Валюта", class: "form-label fw-bold"
+      .col-3
+        = select_tag :currency, options_for_select(["UAH", "USD", "EUR", "PLN", "GBP"], selected: params[:currency]), class: "form-select custom-select"
 
-  .row.align-items-center.my-3
-    .col-2.text-end
-      = label_tag :operation_type, class: "form-label fw-bold"
-        | Тип операції
-    .col-3
-      select#operation_type.form-select.custom-select name="operation_type"
-        - Operation.operation_types.keys.each do |t|
-          option value="#{t}"
-            = type_to_word(t)
+    .row.align-items-center.my-3
+      .col-2.text-end
+        = label_tag :operation_type, class: "form-label fw-bold"
+          | Тип операції
+      .col-3
+        select#operation_type.form-select.custom-select name="operation_type"
+          - Operation.operation_types.keys.each do |t|
+            option value="#{t}"
+              = type_to_word(t)
 
-  .row.align-items-center.my-3
-    .col-2.text-end
-      = label_tag :operation_type, class: "form-label fw-bold"
-        | Категорія
-    .col-3
-      select#operation_category_id.form-select.custom-select name="operation[category_id]" data-action="focus->hide#hideBtn onfocusout->hide#showBtn"
-        option desiabled="true"
-          | Виберіть категорію
-        - @category_options.each do |o|
-          option value="#{o[1]}"
-            = o[0]
+    .row.align-items-center.my-3
+      .col-2.text-end
+        = label_tag :operation_type, class: "form-label fw-bold"
+          | Категорія
+      .col-3
+        select#operation_category_id.form-select.custom-select name="operation[category_id]" data-action="focus->hide#hideBtn onfocusout->hide#showBtn"
+          option desiabled="true"
+            | Виберіть категорію
+          - @category_options.each do |o|
+            option value="#{o[1]}"
+              = o[0]
 
-  .row.align-items-center.my-5
-    .col.offset-2
+    .row.align-items-center.my-5
+      .col.offset-2
 
-      button.custom-btn.success.me-4[type="submit" data-hide-target="button"]
-        i.fa-solid.fa-chart-pie
-        | Графік
-      button.custom-btn.danger type="submit" formaction="#{reports_by_dates_path}"
-        i.fa-solid.fa-chart-line
-        | По датам
+        button.custom-btn.success.me-4[type="submit" data-hide-target="button"]
+          i.fa-solid.fa-chart-pie
+          | Графік
+        button.custom-btn.danger type="submit" formaction="#{reports_by_dates_path}"
+          i.fa-solid.fa-chart-line
+          | По датам
 
+  .today_rates
+    h1 Актуальні курси валют за сьогодні
+    ul
+      - today_currency.each do |item|
+        li
+          | Вартість гривні до &nbsp;
+          = item[:desc]
+          | &nbsp;
+          = item[:currency]
+          | &nbsp;
+          = item[:sign]
